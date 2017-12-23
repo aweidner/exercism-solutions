@@ -1,11 +1,11 @@
 local diff = {}
 
 function diff.square_of_sums(n)
-    total = 0
+    local total = 0
     for i = n, 1, -1 do
         total = total + i
     end
-    return math.pow(total, 2)
+    return total ^ 2
 end
 
 function diff.sum_of_squares(n)

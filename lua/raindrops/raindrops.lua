@@ -1,17 +1,9 @@
-local function pling(n)
-    if n % 3 == 0 then return "Pling" else return "" end
-end
-
-local function plang(n)
-    if n % 5 == 0 then return "Plang" else return "" end
-end
-
-local function plong(n)
-    if n % 7 == 0 then return "Plong" else return "" end
+local function sound(n, div, sound)
+    if n % div == 0 then return sound else return "" end
 end
 
 local function raindrops(n)
-    result = pling(n) .. plang(n) .. plong(n)
+    result = sound(n, 3, "Pling") .. sound(n, 5, "Plang") .. sound(n, 7, "Plong") 
     if result == "" then return tostring(n) else return result end
 end
 
