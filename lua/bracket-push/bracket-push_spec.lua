@@ -73,3 +73,4 @@ describe('bracket-push', function()
     assert.is_true(brackets.valid('{hello[]([a()])b}c'))
   end)
 end)
+
