@@ -1,12 +1,10 @@
 local function is_isogram(phrase)
     local seen = {}
     for character in phrase:lower():gmatch("[a-z]") do
-        for _, v in pairs(seen) do
-            if character == v then
-                return false
-            end
+        if seen[character] then
+            return false
         end
-        table.insert(seen, character)
+        seen[character] = true
     end
 
     return true
