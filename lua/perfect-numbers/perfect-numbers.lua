@@ -1,18 +1,18 @@
 local pn = {}
 
 local function divisions(n)
-    local result = {}
-    for i = 1, math.floor(n / 2) do
-        if n % i == 0 then
-            table.insert(result, i)
+    return coroutine.wrap(function()
+        for i = 1, math.floor(n / 2) do
+            if n % i == 0 then
+                coroutine.yield(i)
+            end
         end
-    end
-    return result
+    end)
 end
 
 function pn.aliquot_sum(n)
     local result = 0
-    for _, v in ipairs(divisions(n)) do
+    for v in divisions(n) do
         result = result + v
     end
     return result
