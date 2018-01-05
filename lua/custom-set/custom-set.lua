@@ -36,31 +36,6 @@ function Set:is_subset(other)
     return true
 end
 
-function Set:is_disjoint(other)
-    for k, _ in pairs(self._set) do
-        if other:contains(k) then
-            return false
-        end
-    end
-    return true
-end
-
-function Set:equals(other)
-    for k, _ in pairs(self._set) do
-        if not other:contains(k) then
-            return false
-        end
-    end
-
-    for k, _ in pairs(other._set) do
-        if not self:contains(k) then
-            return false
-        end
-    end
-
-    return true
-end
-
 function Set:intersection(other)
     local set = Set:create({})
 
@@ -77,6 +52,14 @@ function Set:intersection(other)
     end
 
     return set
+end
+
+function Set:is_disjoint(other)
+    return self:intersection(other):is_empty()
+end
+
+function Set:equals(other)
+    return other:is_subset(self) and self:is_subset(other)
 end
 
 function Set:difference(other)

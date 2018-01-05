@@ -2,7 +2,7 @@ local rle = {}
 
 function rle.encode(decoded)
     for character in decoded:gmatch(".") do
-        decoded = decoded:gsub(character .. character .. "+", function(match)
+        decoded = decoded:gsub(character:rep(2) .. "+", function(match)
             return tostring(#match) .. character 
         end)
     end

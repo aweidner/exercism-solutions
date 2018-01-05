@@ -5,18 +5,26 @@ local function round(number, places)
 end
 
 function SpaceAge:new(seconds)
-    local on_earth = seconds / 31557600
-    return {
-        seconds=seconds,
-        on_earth = function() return round(on_earth, 2) end,
-        on_mercury = function() return round(on_earth / .2408467, 2) end,
-        on_venus = function() return round(on_earth / .61519726, 2) end,
-        on_mars = function() return round(on_earth / 1.8808158, 2) end,
-        on_jupiter = function() return round(on_earth / 11.862615, 2) end,
-        on_saturn = function() return round(on_earth / 29.447498, 2) end,
-        on_uranus = function() return round(on_earth / 84.016846, 2) end,
-        on_neptune = function() return round(on_earth / 164.79132, 2) end
+    local planets = {
+        on_earth = 1,
+        on_mercury = .2408467,
+        on_venus = .61519726,
+        on_mars = 1.8808158,
+        on_jupiter = 11.862615,
+        on_saturn = 29.447498,
+        on_uranus = 84.016846,
+        on_neptune = 164.79132
     }
+
+    return setmetatable({
+        seconds=seconds,
+    }, {
+        __index = function(self, where)
+            return function() 
+                return round(seconds / 31557600 / planets[where], 2)
+            end
+        end
+    })
 end
 
 return SpaceAge
