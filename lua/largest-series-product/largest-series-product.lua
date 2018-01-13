@@ -23,10 +23,7 @@ return function(args)
     local max_so_far = 0
 
     for chunk in chunks_of_digits(args.digits, args.span) do
-        local latest_product = product(chunk)
-        if latest_product > max_so_far then
-            max_so_far = latest_product
-        end
+        max_so_far = math.max(product(chunk), max_so_far)
     end
 
     return max_so_far

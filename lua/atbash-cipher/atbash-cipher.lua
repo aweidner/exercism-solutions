@@ -9,7 +9,7 @@ return {
         local chunk_index = 1
 
         for i = 1, #plaintext do
-            ci = plain:find(plaintext:sub(i, i))
+            local ci = plain:find(plaintext:sub(i, i))
             if ci then
                 chunks[chunk_index] = chunks[chunk_index] .. cipher:sub(ci, ci)
             else
