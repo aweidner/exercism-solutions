@@ -2,7 +2,7 @@ return {
     score = function(word)
         if not word then return 0 end
 
-        scores = {
+        local scores = {
             A=1, E=1, I=1, O=1, U=1, L=1, N=1, R=1, S=1, T=1,
             D=2, G=2,
             B=3, C=3, M=3, P=3,
@@ -14,8 +14,8 @@ return {
 
         local score = 0
 
-        for i = 1, #word do 
-            score = score + scores[word:sub(i, i):upper()]     
+        for c in word:upper().gmatch(".") do
+            score = score + scores[c]
         end
 
         return score
