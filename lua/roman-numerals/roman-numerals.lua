@@ -16,9 +16,9 @@ local numerals = {
 
 local function to_roman(number)
     for _, number_to_numeral in pairs(numerals) do
-        local reference_number = number_to_numeral[1]
+        local reference_number, numeral = table.unpack(number_to_numeral) 
         if number >= reference_number then
-            return number_to_numeral[2] .. to_roman(number - reference_number)
+            return numeral .. to_roman(number - reference_number)
         end
     end
 
