@@ -1,0 +1,48 @@
+
+# Created by https://www.gitignore.io/api/haskell,go,stack
+# Edit at https://www.gitignore.io/?templates=haskell,go,stack
+
+### Go ###
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Test binary, build with `go test -c`
+*.test
+
+# Output of the go coverage tool, specifically when used with LiteIDE
+*.out
+
+### Go Patch ###
+/vendor/
+/Godeps/
+
+### Haskell ###
+dist
+dist-*
+cabal-dev
+*.o
+*.hi
+*.chi
+*.chs.h
+*.dyn_o
+*.dyn_hi
+.hpc
+.hsenv
+.cabal-sandbox/
+cabal.sandbox.config
+*.prof
+*.aux
+*.hp
+*.eventlog
+.stack-work/
+cabal.project.local
+cabal.project.local~
+.HTF/
+.ghc.environment.*
+
+# End of https://www.gitignore.io/api/haskell,go,stack
+

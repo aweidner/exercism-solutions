@@ -1,0 +1,36 @@
+-- This file has been generated from package.yaml by hpack version 0.28.2.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: 186b2d3bdd60dcee8a7498d47eba764d7d416941db772a09177212872f937199
+
+name:           bob
+version:        1.4.0.7
+build-type:     Simple
+cabal-version:  >= 1.10
+
+library
+  exposed-modules:
+      Bob
+  other-modules:
+      Paths_bob
+  hs-source-dirs:
+      src
+  build-depends:
+      base
+    , safe
+  default-language: Haskell2010
+
+test-suite test
+  type: exitcode-stdio-1.0
+  main-is: Tests.hs
+  other-modules:
+      Paths_bob
+  hs-source-dirs:
+      test
+  build-depends:
+      base
+    , bob
+    , hspec
+    , safe
+  default-language: Haskell2010
